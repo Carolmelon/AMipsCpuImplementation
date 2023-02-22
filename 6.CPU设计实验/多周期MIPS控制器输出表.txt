@@ -1,0 +1,20 @@
+
+		s0 MemRead=1 IRWrite=1 AluSrcB=01 AluOP=+ PCWrite=1
+		s1 AluOP = +
+addi	s2 AluSrcA=1 AluSrcB=10   AluOP = 由func字段决定
+或slt	s3 RegWrite=1
+
+addi	s4 AluSrcA=1 AluSrcB=11	  AluOP = +
+		s5 RegWrite=1 RegDest=1
+		
+lw		s6 AluSrcA=1 AluSrcB=11   AluOP = +
+		s7 IorD=1 MemRead=1
+		s8 MemToReg=1 RegDest=1 RegWrite=1
+	
+sw		s9 AluSrcA=1 AluSrcB=11   AluOP = +
+		s10 IorD=1 MemWrite=1
+
+beq		s11 AluSrcA=1 AluSrcB=10 AluOP=+ PC_Src=1
+bne		s12	AluSrcA=1 AluSrcB=10 AluOP=+ PC_Src=1
+
+syscall s13 
